@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estética Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7EFE3;
+    --parchment:#EEE0C8;
+    --espresso:#2A1B10;
+    --espresso-soft:#4A3624;
+    --bronze:#A9784D;
+    --bronze-light:#C9A06C;
+    --clay:#7C4A2A;
+    --blush:#E3B896;
+    --line:rgba(42,27,16,0.14);
+    --maxw:1280px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--cream);
+    color:var(--espresso);
+    font-family:'Manrope', sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+
+  .italic-accent{
+    font-style:italic;
+    font-weight:400;
+    color:var(--bronze);
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  .eyebrow{
+    text-transform:uppercase;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    color:var(--clay);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:'';
+    display:inline-block;
+    width:28px;
+    height:1px;
+    background:var(--bronze);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    padding:22px 6vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    mix-blend-mode:normal;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{
+    background:rgba(247,239,227,0.86);
+    backdrop-filter:blur(10px);
+    padding:14px 6vw;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    letter-spacing:0.02em;
+    display:flex;
+    flex-direction:column;
+    line-height:1.05;
+  }
+  .logo .script{
+    font-style:italic;
+    font-weight:400;
+    font-size:0.95rem;
+    color:var(--bronze);
+  }
+  .logo .name{
+    font-weight:600;
+    letter-spacing:0.06em;
+  }
+  nav ul{
+    display:flex;
+    gap:38px;
+    list-style:none;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+  }
+  nav a{
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0%;
+    height:1px;
+    background:var(--espresso);
+    transition:width .3s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-cta{
+    display:inline-block;
+    border:1px solid var(--espresso);
+    padding:10px 22px;
+    border-radius:2px;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    transition:background .3s ease, color .3s ease;
+  }
+  .nav-cta:hover{background:var(--espresso); color:var(--cream);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:110px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-eyebrow{margin-bottom:28px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.4rem);
+    line-height:0.98;
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:28px;
+    max-width:38ch;
+    font-size:1.08rem;
+    color:var(--espresso-soft);
+  }
+  .hero-cta-row{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    margin-top:44px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--espresso);
+    color:var(--cream);
+    padding:16px 34px;
+    border-radius:2px;
+    font-size:0.9rem;
+    letter-spacing:0.03em;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:background .35s ease, transform .35s ease;
+  }
+  .btn-primary:hover{background:var(--clay); transform:translateY(-2px);}
+  .btn-ghost{
+    font-size:0.88rem;
+    letter-spacing:0.02em;
+    border-bottom:1px solid var(--espresso);
+    padding-bottom:3px;
+    transition:opacity .3s ease;
+  }
+  .btn-ghost:hover{opacity:0.6;}
+
+  .hero-visual{
+    position:relative;
+    height:560px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual svg{width:100%; height:100%;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s ease, transform .9s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- PHILOSOPHY ---------- */
+  .philosophy{
+    padding:150px 0 130px;
+    border-top:1px solid var(--line);
+  }
+  .philosophy .wrap{
+    display:grid;
+    grid-template-columns:0.4fr 0.6fr;
+    gap:60px;
+  }
+  .philosophy h2{
+    font-size:clamp(1.8rem, 3vw, 2.6rem);
+    line-height:1.18;
+  }
+  .philosophy .signature{
+    margin-top:34px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .signature .name{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+  }
+  .signature .role{
+    font-size:0.76rem;
+    color:var(--espresso-soft);
+    letter-spacing:0.04em;
+  }
+  .philosophy-body p{
+    font-size:1.02rem;
+    color:var(--espresso-soft);
+    max-width:52ch;
+  }
+  .philosophy-body p + p{margin-top:20px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    background:var(--espresso);
+    color:var(--cream);
+    padding:130px 0;
+  }
+  .services .eyebrow{color:var(--bronze-light);}
+  .services .eyebrow::before{background:var(--bronze-light);}
+  .services h2{
+    font-size:clamp(2rem,4vw,3.2rem);
+    max-width:16ch;
+    margin-top:24px;
+    color:var(--cream);
+    line-height:1.08;
+  }
+  .service-list{
+    margin-top:80px;
+    border-top:1px solid rgba(247,239,227,0.18);
+  }
+  .service-row{
+    display:grid;
+    grid-template-columns:0.22fr 0.5fr 0.28fr;
+    gap:30px;
+    align-items:center;
+    padding:38px 0;
+    border-bottom:1px solid rgba(247,239,227,0.18);
+    transition:padding-left .4s ease;
+  }
+  .service-row:hover{padding-left:14px;}
+  .service-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1rem;
+    color:var(--bronze-light);
+  }
+  .service-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.3rem,2.2vw,1.9rem);
+    font-weight:400;
+  }
+  .service-desc{
+    font-size:0.92rem;
+    color:rgba(247,239,227,0.7);
+    max-width:42ch;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background:var(--parchment);
+    padding:130px 0;
+  }
+  .process-head{
+    max-width:60ch;
+  }
+  .process-head h2{
+    font-size:clamp(1.8rem,3.4vw,2.8rem);
+    margin-top:20px;
+  }
+  .process-steps{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px;
+  }
+  .step .step-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.6rem;
+    color:var(--bronze);
+    line-height:1;
+  }
+  .step h3{
+    margin-top:22px;
+    font-size:1.3rem;
+    font-weight:500;
+  }
+  .step p{
+    margin-top:12px;
+    color:var(--espresso-soft);
+    font-size:0.94rem;
+    max-width:32ch;
+  }
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testimonial{
+    padding:150px 0;
+    text-align:center;
+  }
+  .testimonial blockquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.5rem,3.2vw,2.4rem);
+    line-height:1.35;
+    max-width:26ch;
+    margin:0 auto;
+  }
+  .testimonial cite{
+    display:block;
+    margin-top:34px;
+    font-style:normal;
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    color:var(--espresso-soft);
+  }
+  .quote-mark{
+    font-family:'Fraunces', serif;
+    font-size:3rem;
+    color:var(--bronze);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--espresso);
+    color:var(--cream);
+    padding:130px 0 60px;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.55fr 0.45fr;
+    gap:60px;
+  }
+  .contact h2{
+    font-size:clamp(2.2rem,4.4vw,3.6rem);
+    color:var(--cream);
+    max-width:12ch;
+    line-height:1.05;
+  }
+  .contact-cta{margin-top:40px;}
+  .contact-cta .btn-primary{background:var(--bronze); color:var(--espresso);}
+  .contact-cta .btn-primary:hover{background:var(--bronze-light);}
+  .contact-info{
+    border-left:1px solid rgba(247,239,227,0.18);
+    padding-left:50px;
+  }
+  .info-block{margin-bottom:34px;}
+  .info-block .label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--bronze-light);
+    margin-bottom:8px;
+  }
+  .info-block .value{
+    font-size:1rem;
+    color:rgba(247,239,227,0.9);
+  }
+  .info-block a:hover{color:var(--bronze-light);}
+
+  footer{
+    margin-top:100px;
+    padding-top:26px;
+    border-top:1px solid rgba(247,239,227,0.18);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.76rem;
+    color:rgba(247,239,227,0.55);
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  footer a:hover{color:var(--bronze-light);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    nav ul{display:none;}
+    .nav-cta{padding:8px 16px; font-size:0.76rem;}
+
+    .hero{padding-top:120px; min-height:auto; padding-bottom:80px;}
+    .hero-grid{grid-template-columns:1fr; gap:50px;}
+    .hero h1{max-width:14ch;}
+    .hero-visual{height:340px; order:-1; opacity:0.9;}
+
+    .philosophy{padding:90px 0;}
+    .philosophy .wrap{grid-template-columns:1fr; gap:36px;}
+
+    .services{padding:90px 0;}
+    .service-row{grid-template-columns:1fr; gap:8px; padding:28px 0;}
+
+    .process{padding:90px 0;}
+    .process-steps{grid-template-columns:1fr; gap:44px;}
+
+    .testimonial{padding:100px 0;}
+
+    .contact{padding:90px 0 40px;}
+    .contact-grid{grid-template-columns:1fr; gap:44px;}
+    .contact-info{border-left:none; padding-left:0; border-top:1px solid rgba(247,239,227,0.18); padding-top:34px;}
+    footer{flex-direction:column; align-items:flex-start;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--bronze);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="logo">
+    <span class="script">Estética</span>
+    <span class="name">EXCELLENCE</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#filosofia">Nossa Abordagem</a></li>
+      <li><a href="#tratamentos">Especialidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <a class="nav-cta" href="https://wa.me/5566996554379" target="_blank" rel="noopener">Agendar avaliação</a>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow reveal">Centro de Estética Avançada · Alto Taquari</div>
+      <h1 class="reveal">Protocolos <span class="italic-accent">personalizados.</span> Tecnologia de última geração.</h1>
+      <p class="lede reveal">Estética avançada focada no que realmente funciona para o seu corpo. Tratamentos para gordura localizada, flacidez e celulite baseados em ciência e acompanhamento clínico rigoroso.</p>
+      <div class="hero-cta-row reveal">
+        <a class="btn-primary" href="https://wa.me/5566996554379" target="_blank" rel="noopener">Agendar avaliação →</a>
+        <a class="btn-ghost" href="#tratamentos">Ver tratamentos</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="logo.PNG" alt="logo">
+    </div>
+  </div> 
+</section>
+
+<section class="philosophy" id="filosofia">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Nossa Abordagem</div>
+      <h2>Seu corpo exige um diagnóstico preciso.</h2>
+      <div class="signature">
+        <span class="name">Milena Menotti</span>
+        <span class="role">— Fundadora, Estética Excellence</span>
+      </div>
+    </div>
+    <div class="philosophy-body">
+      <p>Entendemos que tratar queixas estéticas exige uma avaliação criteriosa do seu biotipo, do seu estilo de vida e de como o seu organismo responde a cada estímulo.</p>
+      <p>Nosso compromisso é com a sua segurança e a sua autoestima. Desenhamos tratamentos baseados em evidências clínicas para garantir que cada sessão aproxime você do resultado que deseja ver no espelho.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="tratamentos">
+  <div class="wrap">
+    <div class="eyebrow">Especialidades Clínicas</div>
+    <h2>O que podemos fazer por você hoje.</h2>
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-num">Corporal</div>
+        <div class="service-title">Gordura localizada &amp; redução</div>
+        <div class="service-desc">Combinação de tecnologias focadas na quebra do tecido adiposo e melhora do contorno corporal.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">Corporal</div>
+        <div class="service-title">Flacidez &amp; estímulo de colágeno</div>
+        <div class="service-desc">Terapias avançadas para resgatar a firmeza, a elasticidade e o tônus da sua pele.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">Corporal</div>
+        <div class="service-title">Celulite &amp; uniformização</div>
+        <div class="service-desc">Tratamento direcionado para atenuar ondulações, melhorando a oxigenação e a textura local.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">Facial</div>
+        <div class="service-title">Revitalização &amp; controle de manchas</div>
+        <div class="service-desc">Protocolos de limpeza profunda, renovação celular e clareamento para uma pele iluminada.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">Home care</div>
+        <div class="service-title">Prescrição dermocosmética</div>
+        <div class="service-desc">Indicação técnica de produtos para potencializar e manter os resultados do consultório em casa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="process-head reveal">
+      <div class="eyebrow">O Método Excellence</div>
+      <h2>Como funciona a sua jornada conosco.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Avaliação Clínica</h3>
+        <p>Uma análise detalhada das suas disfunções estéticas e alinhamento real de expectativas.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Plano Direcionado</h3>
+        <p>Criação de um protocolo exclusivo, cruzando as terapias mais adequadas para o seu metabolismo.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Monitoramento</h3>
+        <p>Acompanhamento fotográfico e ajustes ao longo das semanas para garantir que o corpo continue respondendo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="wrap">
+    <span class="quote-mark reveal">“</span>
+    <blockquote class="reveal">Já passei por diversas clínicas, mas foi só na Excellence que entendi a diferença de um tratamento focado no meu biotipo.</blockquote>
+    <cite class="reveal">Relato de uma de nossas pacientes após finalizar protocolo corporal</cite>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow" style="color:var(--bronze-light);">Agendamento</div>
+        <h2 class="reveal">Dê o primeiro passo para transformar sua autoestima.</h2>
+        <div class="contact-cta reveal">
+          <a class="btn-primary" href="https://wa.me/5566996554379" target="_blank" rel="noopener">Falar com a equipe no WhatsApp →</a>
+        </div>
+      </div>
+      <div class="contact-info reveal">
+        <div class="info-block">
+          <div class="label">Endereço</div>
+          <div class="value">Rua Marçal Batista, 700 — Centro<br>Alto Taquari, MT</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Instagram</div>
+          <div class="value"><a href="https://instagram.com/clinicaexcellenceat" target="_blank" rel="noopener">@clinicaexcellenceat</a></div>
+        </div>
+        <div class="info-block">
+          <div class="label">Responsável Técnica</div>
+          <div class="value">Milena Menotti</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span>© 2026 Estética Excellence — Centro de Estética Avançada[cite: 1]</span>
+      <a href="https://wa.me/5566996554379" target="_blank" rel="noopener">(66) 99655-4379</a>
+    </footer>
+  </div>
+</section>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
